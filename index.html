@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Demo · Navegación con asistente contextual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&family=Orbitron:wght@500;700;900&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <main>
+        <h1>Navegación con asistente contextual en el borde</h1>
+        <p class="sub">Demo simulado · ruta de 21,4 km · el asistente responde en local, también sin señal móvil.</p>
+        <div class="screen" id="scr">
+            <div class="map" id="map"><canvas id="cv"></canvas>
+                <div class="fade"></div>
+            </div>
+            <div class="tl">
+                <span class="chip glass" id="cSig">Señal</span>
+                <span class="chip glass g">Borde: activo</span>
+                <span class="chip glass" id="cDrv">Conductor</span>
+            </div>
+            <div class="tr">
+                <div class="top glass"><button class="ib" id="gear" aria-label="Ajustes">⚙</button>
+                    <div class="comp">
+                        <div id="cmp"><b id="cmpN">N</b></div>
+                    </div>
+                </div>
+                <div class="lim"><b id="lim">60</b><span>km/h</span></div>
+            </div>
+            <div class="ctl glass" id="ctl">
+                <select id="mult">
+                    <option value="1">Simulación ×1</option>
+                    <option value="5">×5</option>
+                    <option value="10" selected>×10</option>
+                    <option value="30">×30</option>
+                </select>
+                <button class="s" id="pause">Pausar</button>
+                <button class="s" id="yawn">Simular bostezo</button>
+                <button class="s" id="micro">Simular microsueño</button>
+                <button class="s" id="rain">Lluvia</button>
+                <button class="s" id="reset">Reiniciar</button>
+            </div>
+            <div class="ov" id="ov"><button class="vs glass off" id="vs">🎙 Activar voz</button>
+                <div class="bub glass" id="bub" style="display:none"></div>
+            </div>
+            <div class="start" id="start"><small>Moyobamba → Rioja · 21,4 km</small>
+                <h2>Listo para salir</h2>
+                <p>Pulsa iniciar. Después di “asistente” y tu pregunta.</p><button id="go">▶ Iniciar recorrido</button>
+            </div>
+            <div class="panel glass">
+                <div><b id="arr">--:--</b><span>llegada</span></div>
+                <div><b id="min" class="g">--</b><span>min</span></div>
+                <div><b id="km">--</b><span>km</span></div>
+            </div>
+            <div class="spd glass"><b id="spd">0</b><span>km/h</span></div>
+        </div>
+        <div class="card">
+            <h2>Asistente</h2>
+            <div id="log"></div>
+            <div class="chips" id="chips"></div>
+            <div class="in"><input id="q" placeholder="Pregunta algo… ej. ¿cuánto falta para llegar?"
+                    autocomplete="off"><button id="mic" aria-label="Activar voz">🎙 Voz</button><button id="vz"
+                    aria-label="Voz">🔇</button><button class="p" id="send">Enviar</button></div>
+            <p class="hint">Activa la voz, di “asistente” y luego tu pregunta (o ambas juntas: “asistente, ¿cuánto
+                falta?”). También puedes tocar el botón de voz del mapa para hablar sin la palabra clave. Cada respuesta
+                muestra el tiempo real de procesamiento local.</p>
+        </div>
+    </main>
+    <script src="js/utils.js"></script>
+    <script src="js/route.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/assistant.js"></script>
+    <script src="js/simulation.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/hud.js"></script>
+    <script src="js/voice.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
